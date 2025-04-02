@@ -1,0 +1,100 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 200px);
+    padding: 20px;
+    width: 100%;
+    background: #f5f5f5;
+}
+
+
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover {
+    height: 128px;
+    margin: 10px auto;
+
+}
+
+.book-details {
+    text-align: left;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.cart-item-image {
+    height: 64px;
+    width: auto;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.comment-book-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.burger-menu-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+
+}
+
+.burger-menu-icon span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.burger-menu-icon.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.burger-menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger-menu-icon.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
