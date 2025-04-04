@@ -1,14 +1,14 @@
-function addToCart(bookName) {
+function addToCart(dishName) {
   cart = JSON.parse(localStorage.getItem("cart"));
-  const book = books.find((b) => b.name === bookName);
+  const dish = dishes.find((d) => d.name === dishName);
 
-  if (book) {
-    const existingItem = cart.find((item) => item.name === bookName);
+  if (dish) {
+    const existingItem = cart.find((item) => item.name === dishName);
 
     if (existingItem) {
       existingItem.quantity = (existingItem.quantity || 1) + 1;
     } else {
-      cart.push({ ...book, quantity: 1 });
+      cart.push({ ...dish, quantity: 1 });
     }
     localStorage.setItem("cart", JSON.stringify(cart));
   }
@@ -24,7 +24,7 @@ function getCartTemplate() {
         ${cart.map((item, index) => `
           <div class="cart-item">
             <div>
-              <img class="cart-item-image" src="./assets/img/book.png" alt="${item.name}">
+              <img class="cart-item-image" src="./assets/img/dish.png" alt="${item.name}">
             </div>
             <p>${item.name}</p>
             <p>Preis: ${item.price.toFixed(2)} €</p>
@@ -56,9 +56,9 @@ function updateCart() {
   updateItemQuantity();
 }
 
-function removeFromCart(bookName) {
+function removeFromCart(dishName) {
   cart = JSON.parse(localStorage.getItem("cart"));
-  cart = cart.filter((item) => item.name !== bookName);
+  cart = cart.filter((item) => item.name !== dishName);
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCart();
 }

@@ -60,7 +60,7 @@
     width: auto;
 }
 
-.cart-icon {
+/* .cart-icon {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -71,7 +71,7 @@
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
-}
+} */
 
 .burger-menu-icon {
     cursor: pointer;
@@ -97,4 +97,70 @@
 }
 .burger-menu-icon.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dish-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dish {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.dish-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rating-star {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+button.add-to-cart {
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+button.add-to-cart:hover {
+    background-color: #45a049;
+}
+
+button.add-to-cart:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+button.add-to-cart:disabled:hover {
+    background-color: #ccc;
 }

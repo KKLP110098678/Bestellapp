@@ -1,5 +1,7 @@
 function getDishTemplate(dish) {
   return `
+  <div class="dish-container">
+
     <div class="dish">
       <h2>${dish.name}</h2>
       <p>${dish.description}</p>
@@ -7,21 +9,21 @@ function getDishTemplate(dish) {
     </div>
     <div class="dish-actions">
         <div class="rating-container">
-            <label for="rating">Rating:</label>
-            <select id="rating" name="rating" onchange="updateRating('${dish.name}', this.value)">
-                <option value="1"><img src="./assets/icons/star.svg"></option>
-                <option value="2"><img src="./assets/icons/star.svg"></option>
-                <option value="3"><img src="./assets/icons/star.svg"></option>
-                <option value="4"><img src="./assets/icons/star.svg"></option>
-                <option value="5"><img src="./assets/icons/star.svg"></option>
-            </select>
+          <div><img class="rating-star" src="./assets/img/icons/star.svg"></div>
+          <div><img class="rating-star" src="./assets/img/icons/star.svg"></div>
+          <div><img class="rating-star" src="./assets/img/icons/star.svg"></div>
+          <div><img class="rating-star" src="./assets/img/icons/star.svg"></div>
+          <div><img class="rating-star" src="./assets/img/icons/star.svg"></div>
         </div>
-        <button class="add-to-cart" onclick="addToCart('${dish.name}')">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('${dish.name}')"><img src="./assets/img/icons/add.svg"></button>
     </div>
+  </div>
   `;
 }
 
-function renderDishes(dishes) {
-  const dishContainer = document.getElementById("dish-container");
+function renderDishes() {
+  const dishContainer = document.querySelector("#dish-container");
   dishContainer.innerHTML = dishes.map(getDishTemplate).join("");
 }
+
+renderDishes();
