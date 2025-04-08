@@ -24,7 +24,7 @@ function getCartTemplate() {
         ${cart.map((item, index) => `
           <div class="cart-item">
             <div>
-              <img class="cart-item-image" src="./assets/img/dish.png" alt="${item.name}">
+              <img class="cart-item-image" src="${item.image}" alt="${item.name}">
             </div>
             <p>${item.name}</p>
             <p>Preis: ${item.price.toFixed(2)} €</p>
