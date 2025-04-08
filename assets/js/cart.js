@@ -27,10 +27,14 @@ function getCartTemplate() {
               <img class="cart-item-image" src="${item.image}" alt="${item.name}">
             </div>
             <p>${item.name}</p>
-            <p>Preis: ${item.price.toFixed(2)} €</p>
+            <div class="amount-container">
             <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
+            <p>Preis: ${item.price.toFixed(2)} €</p>
+            </div>
             <div>
-              <button class="remove-from-cart" onclick="removeFromCart('${item.name}')">Entfernen</button>
+              <button class="remove-from-cart" onclick="removeFromCart('${item.name}')">
+                <img src="./assets/img/icons/close.svg" alt="Entfernen">
+              </button>
             </div>
           </div>
         `).join("")}
