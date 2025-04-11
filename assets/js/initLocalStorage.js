@@ -9,3 +9,21 @@ if (localStorage.getItem("product-rating") === null) {
 }
 
 let productRating = JSON.parse(localStorage.getItem("product-rating"));
+
+function refreshProductRating() {
+    productRating = JSON.parse(localStorage.getItem("product-rating"));
+}
+
+function setSavedRating() {
+    productRating.forEach(function (rating) {
+        const starsContainer = document.querySelector(`#rating-container-${rating.productId}`);
+        if (starsContainer) {
+            const checkedRadio = starsContainer.querySelector(`input[name="rating-${rating.productId}"][id="rating${rating.rating}-${rating.productId}"]`);
+            if (checkedRadio) {
+                checkedRadio.checked = true;
+            }
+        }
+    });
+}
+
+
