@@ -15,7 +15,7 @@ header {
     align-items: center;
     height: 100px;
     padding: 0 20px;
-    background: #082028;
+    background: #fe7f00;
 }
 
 header .header-logo {
@@ -28,7 +28,7 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100px;
-    background: #082028;
+    background: #fe7f00;
     
 }
 
