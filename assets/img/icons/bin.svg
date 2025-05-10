@@ -1,0 +1,13 @@
+<svg width="200" height="250" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="45" y="50" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
+  <g id="deckel-gruppe">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                      dur="0.3s" from="0 100 50" to="-15 100 50" fill="freeze" begin="deckel-hover.mouseover" end="deckel-hover.mouseout" />
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                      dur="0.3s" from="-15 100 50" to="0 100 50" fill="freeze" begin="deckel-hover.mouseout" />
+    <rect id="deckel" x="30" y="30" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
+    <path id="handle" d="M70 30 Q100 0 130 30" fill="none" stroke="#999" stroke-width="3" />
+    <!-- Sicherstellen, dass deckel-hover über dem Deckel liegt -->
+    <rect id="deckel-hover" x="30" y="30" width="140" height="30" fill="transparent" style="cursor: pointer;" />
+  </g>
+</svg>
