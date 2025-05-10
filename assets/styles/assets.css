@@ -191,3 +191,12 @@ button.add-to-cart:disabled {
 button.add-to-cart:disabled:hover {
     background-color: #ccc;
 }
+
+#deckel-gruppe {
+    transform-origin: 100px 50px; /* Drehpunkt */
+    transition: transform 0.3s ease;
+  }
+
+  #muelleimer-gruppe:hover #deckel-gruppe {
+    transform: translateX(-12px) translateY(-30px) rotate(-30deg);
+  }

@@ -33,7 +33,15 @@ function getCartTemplate() {
             </div>
             <div>
               <button class="remove-from-cart" onclick="removeFromCart('${item.name}')">
-                <img src="./assets/img/icons/close.svg" alt="Entfernen">
+                <svg id="bin-icon" width="200" height="250" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+                  <g id="muelleimer-gruppe">
+                    <rect id="tonne" x="45" y="50" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
+                    <g id="deckel-gruppe">
+                      <rect id="deckel" x="30" y="30" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
+                      <path id="handle" d="M70 30 Q100 0 130 30" fill="none" stroke="#999" stroke-width="3" />
+                    </g>
+                  </g>
+                </svg>
               </button>
             </div>
           </div>
