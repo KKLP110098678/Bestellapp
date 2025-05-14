@@ -33,12 +33,12 @@ function getCartTemplate() {
             </div>
             <div>
               <button class="remove-from-cart" onclick="removeFromCart('${item.name}')">
-                <svg id="bin-icon" width="200" height="250" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+                <svg class="bin-icon" id="bin-icon" width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
                   <g id="muelleimer-gruppe">
-                    <rect id="tonne" x="45" y="50" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
+                    <rect id="tonne" x="45" y="85" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
                     <g id="deckel-gruppe">
-                      <rect id="deckel" x="30" y="30" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
-                      <path id="handle" d="M70 30 Q100 0 130 30" fill="none" stroke="#999" stroke-width="3" />
+                      <rect id="deckel" x="30" y="65" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
+                      <path id="handle" d="M70 65 Q100 25 130 65" fill="none" stroke="#999" stroke-width="3" />
                     </g>
                   </g>
                 </svg>
@@ -76,7 +76,7 @@ function removeFromCart(dishName) {
 }
 
 function updateItemQuantity() {
-  cart = JSON.parse(localStorage.getItem("cart")); 
+  cart = JSON.parse(localStorage.getItem("cart"));
   const itemQuantities = document.querySelectorAll('input[name="item-quantity"]');
 
   itemQuantities.forEach((input, index) => {
