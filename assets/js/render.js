@@ -36,10 +36,31 @@ function getRatingContainerTemplate(dishId, MaxRating) {
     `;
 }
 
+function groupDishesByCategory(dishes) {
+  return dishes.reduce((categories, dish) => {
+    const category = dish.category;
+    if (!categories[category]) {
+      categories[category] = [];
+    }
+    categories[category].push(dish);
+    return categories;
+  }, {});
+}
 
 function renderDishes() {
   const dishContainer = document.querySelector("#dish-container");
-  dishContainer.innerHTML = dishes.map(getDishTemplate).join("");
+  const groupedDishes = groupDishesByCategory(dishes);
+
+  dishContainer.innerHTML = Object.entries(groupedDishes)
+    .map(([category, dishes]) => `
+      <div class="category-section">
+        <h2 class="category-title">${category}</h2>
+        <div class="category-dishes">
+          ${dishes.map(getDishTemplate).join("")}
+        </div>
+      </div>
+    `)
+    .join("");
 }
 
 renderDishes();

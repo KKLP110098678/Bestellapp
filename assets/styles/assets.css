@@ -211,4 +211,29 @@ button.add-to-cart:disabled:hover {
     display: flex;
     gap: 10px;
     margin-top: 20px;
+    overflow-x: auto;
 }
+
+.category {
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.category-section {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .category-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .category-dishes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
