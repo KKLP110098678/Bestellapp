@@ -28,21 +28,19 @@ function getCartTemplate() {
             </div>
             <p>${item.name}</p>
             <div class="amount-container">
-            <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
-            <p>Preis: ${item.price.toFixed(2)} €</p>
+              <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
+              <p>Preis: ${item.price.toFixed(2)} €</p>
             </div>
             <div>
-              <button class="remove-from-cart" onclick="removeFromCart('${item.name}')">
-                <svg class="bin-icon" id="bin-icon" width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-                  <g id="muelleimer-gruppe">
-                    <rect id="tonne" x="45" y="85" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
-                    <g id="deckel-gruppe">
-                      <rect id="deckel" x="30" y="65" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
-                      <path id="handle" d="M70 65 Q100 25 130 65" fill="none" stroke="#999" stroke-width="3" />
-                    </g>
+              <svg class="bin-icon" id="bin-icon-${index}" width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" onclick="removeFromCart('${item.name}')">
+                <g id="muelleimer-gruppe">
+                  <rect id="tonne" x="45" y="85" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
+                  <g id="deckel-gruppe">
+                    <rect id="deckel" x="30" y="65" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
+                    <path id="handle" d="M70 65 Q100 25 130 65" fill="none" stroke="#999" stroke-width="3" />
                   </g>
-                </svg>
-              </button>
+                </g>
+              </svg>
             </div>
           </div>
         `).join("")}
@@ -65,8 +63,11 @@ function toggleCart() {
 function updateCart() {
   const cartContainer = document.getElementById("cart");
   cartContainer.innerHTML = getCartTemplate();
+  attachRemoveEventListeners();
   updateItemQuantity();
 }
+
+
 
 function removeFromCart(dishName) {
   cart = JSON.parse(localStorage.getItem("cart"));
