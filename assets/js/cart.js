@@ -28,7 +28,7 @@ function getCartTemplate() {
             </div>
             <p>${item.name}</p>
             <div class="amount-container">
-              <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
+              <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}">
               <p>Preis: ${item.price.toFixed(2)} €</p>
             </div>
             <div>
@@ -63,36 +63,33 @@ function toggleCart() {
 function updateCart() {
   const cartContainer = document.getElementById("cart");
   cartContainer.innerHTML = getCartTemplate();
-  attachRemoveEventListeners();
   updateItemQuantity();
 }
 
+function updateItemQuantity() {
+  const itemQuantities = document.querySelectorAll('input[name="item-quantity"]');
 
+  itemQuantities.forEach((input) => {
+    input.addEventListener("change", (event) => {
+      const index = parseInt(event.target.dataset.index, 10); 
+      const newQuantity = parseInt(event.target.value, 10);
+
+      if (newQuantity > 0) {
+        cart[index].quantity = newQuantity; 
+        localStorage.setItem("cart", JSON.stringify(cart)); 
+        updateCart(); 
+      } else {
+        removeFromCart(cart[index].name);
+      }
+    });
+  });
+}
 
 function removeFromCart(dishName) {
   cart = JSON.parse(localStorage.getItem("cart"));
   cart = cart.filter((item) => item.name !== dishName);
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCart();
-}
-
-function updateItemQuantity() {
-  cart = JSON.parse(localStorage.getItem("cart"));
-  const itemQuantities = document.querySelectorAll('input[name="item-quantity"]');
-
-  itemQuantities.forEach((input, index) => {
-    input.addEventListener("change", (event) => {
-      const newQuantity = parseInt(event.target.value, 10);
-      if (newQuantity > 0) {
-        cart[index].quantity = newQuantity;
-        localStorage.setItem("cart", JSON.stringify(cart));
-        updateCart();
-      } else {
-        alert("Die Menge muss mindestens 1 betragen.");
-        event.target.value = cart[index].quantity;
-      }
-    });
-  });
 }
 
 function getCartItemCount() {

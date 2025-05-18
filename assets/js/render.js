@@ -53,7 +53,7 @@ function renderDishes() {
 
   dishContainer.innerHTML = Object.entries(groupedDishes)
     .map(([category, dishes]) => `
-      <div class="category-section">
+      <div class="category-section" id="${category}">
         <h2 class="category-title">${category}</h2>
         <div class="category-dishes">
           ${dishes.map(getDishTemplate).join("")}
@@ -63,4 +63,22 @@ function renderDishes() {
     .join("");
 }
 
+function getRestaurantCategories() {
+  return [...new Set(dishes.map((dish) => dish.category))];
+}
+
+function renderCategories() {
+  const categoriesContainer = document.querySelector("#categories");
+  const categories = getRestaurantCategories();
+
+  categoriesContainer.innerHTML = categories
+    .map((category) => `
+      <div class="category">
+        <a href="#${category}" class="category-link">${category}</a>
+      </div>
+    `)
+    .join("");
+}
+
+renderCategories();
 renderDishes();
