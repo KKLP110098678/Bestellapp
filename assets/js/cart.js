@@ -28,7 +28,9 @@ function getCartTemplate() {
             </div>
             <p>${item.name}</p>
             <div class="amount-container">
-              <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}">
+              <button class="quantity-btn minus-btn" onclick="decreaseQuantity(${index})">-</button>
+              <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
+              <button class="quantity-btn plus-btn" onclick="increaseQuantity(${index})">+</button>
               <p>Preis: ${item.price.toFixed(2)} €</p>
             </div>
             <div>
@@ -95,6 +97,22 @@ function removeFromCart(dishName) {
 function getCartItemCount() {
   cart = JSON.parse(localStorage.getItem("cart"));
   return cart.reduce((acc, item) => acc + item.quantity, 0);
+}
+
+function increaseQuantity(index) {
+  cart[index].quantity += 1; 
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCart();
+}
+
+function decreaseQuantity(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCart();
+  } else {
+    removeFromCart(cart[index].name);
+  }
 }
 
 

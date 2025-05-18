@@ -250,3 +250,41 @@ button.add-to-cart:disabled:hover {
   .main-content-top-zero {
     padding-top: 0px;
   }
+
+  .quantity-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-btn:hover {
+  background-color: #45a049;
+}
+
+.minus-btn {
+  margin-right: 5px;
+}
+
+.plus-btn {
+  margin-left: 5px;
+}
+
+.amount-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+input[name="item-quantity"]::-webkit-inner-spin-button,
+input[name="item-quantity"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
