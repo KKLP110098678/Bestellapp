@@ -92,9 +92,11 @@
 .burger-menu-icon.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
+
 .burger-menu-icon.active span:nth-child(2) {
     opacity: 0;
 }
+
 .burger-menu-icon.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
@@ -137,7 +139,7 @@
 }
 
 .rating-container input {
-    display: none; 
+    display: none;
 }
 
 .rating-container label {
@@ -164,7 +166,7 @@
 }
 
 
-.rating-container input:checked + label ~ label .star-shape {
+.rating-container input:checked+label~label .star-shape {
     fill: transparent;
     stroke: gold;
 }
@@ -177,7 +179,7 @@ button.add-to-cart {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    
+
 }
 
 button.add-to-cart:hover {
@@ -188,18 +190,20 @@ button.add-to-cart:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
 button.add-to-cart:disabled:hover {
     background-color: #ccc;
 }
 
 #deckel-gruppe {
-    transform-origin: 100px 50px; /* Drehpunkt */
+    transform-origin: 100px 50px;
+    /* Drehpunkt */
     transition: transform 0.3s ease;
-  }
+}
 
-  #muelleimer-gruppe:hover #deckel-gruppe {
+#muelleimer-gruppe:hover #deckel-gruppe {
     transform: translateX(18px) translateY(-30px) rotate(15deg);
-  }
+}
 
 .bin-icon {
     width: 50px;
@@ -211,7 +215,7 @@ button.add-to-cart:disabled:hover {
     display: flex;
     gap: 10px;
     overflow-x: auto;
-    padding: 10px 0px 10px 0px; 
+    padding: 10px 0px 10px 0px;
 }
 
 .category {
@@ -225,66 +229,71 @@ button.add-to-cart:disabled:hover {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-  }
-  
-  .category-title {
+}
+
+.category-title {
     font-size: 24px;
     margin-bottom: 10px;
-  }
-  
-  .category-dishes {
+}
+
+.category-dishes {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
+}
 
-  .category-link {
+.category-link {
     text-decoration: none;
     color: #000;
-  }
+}
 
-  .category:hover {
+.category:hover {
     background: #f0f0f0;
-  }
+}
 
-  .main-content-top-zero {
+.main-content-top-zero {
     padding-top: 0px;
-  }
+}
 
-  .quantity-btn {
-  width: 30px;
-  height: 30px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .quantity-btn:hover {
-  background-color: #45a049;
-}
-
-.minus-btn {
-  margin-right: 5px;
-}
-
-.plus-btn {
-  margin-left: 5px;
+    background-color: #45a049;
 }
 
 .amount-container {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+input[name="item-quantity"] {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
 }
 
 input[name="item-quantity"]::-webkit-inner-spin-button,
 input[name="item-quantity"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }

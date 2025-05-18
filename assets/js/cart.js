@@ -28,9 +28,11 @@ function getCartTemplate() {
             </div>
             <p>${item.name}</p>
             <div class="amount-container">
-              <button class="quantity-btn minus-btn" onclick="decreaseQuantity(${index})">-</button>
-              <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
-              <button class="quantity-btn plus-btn" onclick="increaseQuantity(${index})">+</button>
+              <div class="quantity-control">
+                <button class="quantity-btn minus-btn" onclick="decreaseQuantity(${index})">-</button>
+                <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
+                <button class="quantity-btn plus-btn" onclick="increaseQuantity(${index})">+</button>
+              </div>
               <p>Preis: ${item.price.toFixed(2)} €</p>
             </div>
             <div>
