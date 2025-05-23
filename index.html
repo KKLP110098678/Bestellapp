@@ -12,9 +12,9 @@
 
 <body>
     <header>
-        <div class="logo">
-            <img class="header-logo" src="./assets/img/Logo/BestellApp-Logo.svg" alt="Logo der Bestellapp">
-        </div>
+        <a href="./index.html" class="logo">
+            <img class="header-logo" src="./assets/img/logo/BestellApp-Logo.svg" alt="Logo der Bestellapp">
+        </a>
         <div class="burger-menu-icon" id="burger-menu-icon" onclick="toggleCart()">
             <span></span>
             <span></span>
@@ -23,9 +23,16 @@
     </header>
     <div class="content">
         <div class="main-content main-content-top-zero">
+            <div class="banner">
+                <img class="banner-image" src="./assets/img/banner/Banner.png" alt="Banner">
+                <div class="banner-text">
+                    <h1>Willkommen bei Bestellapp</h1>
+                    <p>Entdecken Sie die besten Gerichte in Ihrer Nähe!</p>
+                </div>
+            </div>
             <div class="categories" id="categories">
             </div>
-            <div id="dish-container">
+            <div id="dish-container" class="dishes-container">
 
             </div>
         </div>

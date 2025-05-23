@@ -33,7 +33,7 @@ function getCartTemplate() {
                 <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
                 <button class="quantity-btn plus-btn" onclick="increaseQuantity(${index})">+</button>
               </div>
-              <p>Preis: ${item.price.toFixed(2)} €</p>
+              <p class="cart-item-price"></p>
             </div>
             <div>
               <svg class="bin-icon" id="bin-icon-${index}" width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" onclick="removeFromCart('${item.name}')">
@@ -68,6 +68,7 @@ function updateCart() {
   const cartContainer = document.getElementById("cart");
   cartContainer.innerHTML = getCartTemplate();
   updateItemQuantity();
+  updateItemPrice();
 }
 
 function updateItemQuantity() {
@@ -115,6 +116,14 @@ function decreaseQuantity(index) {
   } else {
     removeFromCart(cart[index].name);
   }
+}
+
+function updateItemPrice() {
+  const itemPrices = document.querySelectorAll(".cart-item-price");
+  itemPrices.forEach((itemPrice, index) => {
+    const price = cart[index].price * cart[index].quantity;
+    itemPrice.innerHTML = `Preis: ${price.toFixed(2)} €`;
+  });
 }
 
 

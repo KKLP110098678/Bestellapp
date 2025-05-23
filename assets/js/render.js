@@ -73,9 +73,7 @@ function renderCategories() {
 
   categoriesContainer.innerHTML = categories
     .map((category) => `
-      <div class="category">
-        <a href="#${category}" class="category-link">${category}</a>
-      </div>
+      <a href="#${category}" class="category-link">${category}</a>
     `)
     .join("");
 }
