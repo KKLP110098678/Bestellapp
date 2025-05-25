@@ -308,3 +308,10 @@ input[name="item-quantity"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.banner-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
