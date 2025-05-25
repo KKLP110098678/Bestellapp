@@ -313,5 +313,18 @@ input[name="item-quantity"]::-webkit-outer-spin-button {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 5px;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner-logo {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 140px;
+    left: calc(50% - 50px);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
