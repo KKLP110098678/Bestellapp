@@ -52,6 +52,7 @@ function getCartTemplate() {
       <div class="cart-total">
         <strong>Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)} €</strong>
       </div>
+      <button class="cart-checkout-btn">Zur Kasse</button>
     </div>
   `;
 }
