@@ -57,7 +57,8 @@
 
 .cart-item-image {
     height: 64px;
-    width: auto;
+    width: 64px;
+    object-fit: cover;
 }
 
 /* .cart-icon {
