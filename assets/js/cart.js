@@ -16,39 +16,45 @@ function addToCart(dishName) {
   updateCart();
 }
 
+function getCartItemsTemplate() {
+  return cart.map((item, index) => `
+    <tr class="cart-item">
+      <td>
+        <img class="cart-item-image" src="${item.image}" alt="${item.name}">
+      </td>
+      <td>${item.name}</td>
+      <td>
+        <div class="quantity-control">
+          <button class="quantity-btn minus-btn" onclick="decreaseQuantity(${index})">-</button>
+          <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
+          <button class="quantity-btn plus-btn" onclick="increaseQuantity(${index})">+</button>
+        </div>
+        <p class="cart-item-price">Preis: ${(item.price * item.quantity).toFixed(2)} €</p>
+      </td>
+      <td>
+        <svg class="bin-icon" id="bin-icon-${index}" width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" onclick="removeFromCart('${item.name}')">
+          <g id="muelleimer-gruppe">
+            <rect id="tonne" x="45" y="85" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
+            <g id="deckel-gruppe">
+              <rect id="deckel" x="30" y="65" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
+              <path id="handle" d="M70 65 Q100 25 130 65" fill="none" stroke="#999" stroke-width="3" />
+            </g>
+          </g>
+        </svg>
+      </td>
+    </tr>
+  `).join("");
+}
+
 function getCartTemplate() {
   return `
     <div class="cart-container">
       <h2 class="cart-title">Warenkorb</h2>
-      <div class="cart-items">
-        ${cart.map((item, index) => `
-          <div class="cart-item">
-            <div>
-              <img class="cart-item-image" src="${item.image}" alt="${item.name}">
-            </div>
-            <p>${item.name}</p>
-            <div class="amount-container">
-              <div class="quantity-control">
-                <button class="quantity-btn minus-btn" onclick="decreaseQuantity(${index})">-</button>
-                <input type="number" value="${item.quantity}" name="item-quantity" data-index="${index}" min="1">
-                <button class="quantity-btn plus-btn" onclick="increaseQuantity(${index})">+</button>
-              </div>
-              <p class="cart-item-price"></p>
-            </div>
-            <div>
-              <svg class="bin-icon" id="bin-icon-${index}" width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" onclick="removeFromCart('${item.name}')">
-                <g id="muelleimer-gruppe">
-                  <rect id="tonne" x="45" y="85" width="110" height="150" fill="#ccc" stroke="#999" stroke-width="3" />
-                  <g id="deckel-gruppe">
-                    <rect id="deckel" x="30" y="65" width="140" height="30" rx="15" ry="15" fill="#ddd" stroke="#999" stroke-width="3" />
-                    <path id="handle" d="M70 65 Q100 25 130 65" fill="none" stroke="#999" stroke-width="3" />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </div>
-        `).join("")}
-      </div>
+      <table class="cart-table">
+        <tbody>
+          ${getCartItemsTemplate()}
+        </tbody>
+      </table>
       <div class="cart-total">
         <strong>Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)} €</strong>
       </div>
@@ -59,6 +65,8 @@ function getCartTemplate() {
 
 function toggleCart() {
   const cartIcon = document.querySelector("#burger-menu-icon");
+  const mainContent = document.querySelector("#main-content");
+  mainContent.classList.toggle("cart-open-width");
   cartIcon.classList.toggle("active");
   const container = document.getElementById("cart");
   container.classList.toggle("hidden");
@@ -126,13 +134,3 @@ function updateItemPrice() {
     itemPrice.innerHTML = `Preis: ${price.toFixed(2)} €`;
   });
 }
-
-
-/* function updateCartIcon() {
-  const cartIconNumber = document.querySelector(".cart-icon span");
-  const itemCount = getCartItemCount();
-  cartIconNumber.innerHTML = itemCount > 0 ? itemCount : "";
-  
-} 
-
-updateCartIcon(); */
